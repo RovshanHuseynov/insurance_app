@@ -15,4 +15,20 @@ public class CompanyService {
     public Company create(Company company) {
         return companyRepository.save(company);
     }
+
+    public Company getCompany(long companyId_) {
+        if(companyRepository.findById(companyId_).isPresent()){
+            return companyRepository.findById(companyId_).get();
+        }
+        return null;
+    }
+
+    public Company editCompany(Company company) {
+        return companyRepository.save(company);
+    }
+
+    public Company deleteCompany(long companyId) {
+        companyRepository.deleteById(companyId);
+        return null;
+    }
 }

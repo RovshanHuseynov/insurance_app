@@ -1,10 +1,7 @@
 package rovshan.insurance_app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rovshan.insurance_app.entity.Company;
 import rovshan.insurance_app.service.CompanyService;
 
@@ -20,5 +17,20 @@ public class CompanyController {
     @PostMapping("/add")
     public Company create(@RequestBody Company company){
         return companyService.create(company);
+    }
+
+    @GetMapping("get/{companyId}")
+    public Company getCompany(@PathVariable("companyId") long companyId_){
+        return companyService.getCompany(companyId_);
+    }
+
+    @PostMapping("/edit")
+    public Company editCompany(@RequestBody Company company){
+        return companyService.editCompany(company);
+    }
+
+    @GetMapping("/delete/{companyId}")
+    public Company deleteCompany(@PathVariable long companyId){
+        return companyService.deleteCompany(companyId);
     }
 }
