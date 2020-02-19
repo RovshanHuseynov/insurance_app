@@ -29,12 +29,12 @@ public class UserController {
         return userService.getUserByCompanyId(userId_);
     }
 
-    @PostMapping("edit/{userId}")
+    @PutMapping("edit/{userId}")
     public User editUser(@RequestBody User user){
         return userService.editUser(user);
     }
 
-    @GetMapping("delete/{userId}")
+    @DeleteMapping("delete/{userId}")
     public User deleteUser(@RequestBody User user){
         return userService.deleteUser(user);
     }

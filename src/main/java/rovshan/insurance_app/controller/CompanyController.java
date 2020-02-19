@@ -24,12 +24,12 @@ public class CompanyController {
         return companyService.getCompany(companyId_);
     }
 
-    @PostMapping("/edit")
+    @PutMapping("/edit")
     public Company editCompany(@RequestBody Company company){
         return companyService.editCompany(company);
     }
 
-    @GetMapping("/delete/{companyId}")
+    @DeleteMapping("/delete/{companyId}")
     public Company deleteCompany(@PathVariable long companyId){
         return companyService.deleteCompany(companyId);
     }
