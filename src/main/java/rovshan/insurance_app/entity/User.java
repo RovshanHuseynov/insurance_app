@@ -1,6 +1,8 @@
 package rovshan.insurance_app.entity;
 
 import lombok.Data;
+import rovshan.insurance_app.enumm.Role;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,4 +15,5 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    private Role role;
 }

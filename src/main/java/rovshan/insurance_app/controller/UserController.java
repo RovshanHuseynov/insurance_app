@@ -24,8 +24,13 @@ public class UserController {
         return userService.login(userId_);
     }
 
-    @GetMapping("get/{userId}")
-    public User getUserById(@PathVariable("userId") long userId_){
-        return userService.getUserById(userId_);
+    @GetMapping("get/{companyId}")
+    public User getUserByCompanyId(@PathVariable("userId") long userId_){
+        return userService.getUserByCompanyId(userId_);
+    }
+
+    @PostMapping("edit/{userId}")
+    public User editUser(@RequestBody User user){
+        return userService.editUser(user);
     }
 }

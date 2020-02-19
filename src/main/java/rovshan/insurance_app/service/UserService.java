@@ -16,8 +16,17 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUserById(long userId_) {
-        return userRepository.findById(userId_).get();
+    public User getUserByCompanyId(long userId_) {
+        if(login(userId_).getRole().toString().equals("SUPERADMIN")){
+
+        }
+        else if(login(userId_).getRole().toString().equals("ADMIN")){
+
+        }
+        else if(login(userId_).getRole().toString().equals("OPERATOR")){
+
+        }
+        return null;
     }
 
     public User login(long userId_) {
@@ -25,5 +34,9 @@ public class UserService {
             return userRepository.findById(userId_).get();
         }
         return null;
+    }
+
+    public User editUser(User user) {
+        return userRepository.save(user);
     }
 }
