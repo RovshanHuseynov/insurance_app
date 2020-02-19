@@ -33,4 +33,9 @@ public class UserController {
     public User editUser(@RequestBody User user){
         return userService.editUser(user);
     }
+
+    @GetMapping("delete/{userId}")
+    public User deleteUser(@RequestBody User user){
+        return userService.deleteUser(user);
+    }
 }

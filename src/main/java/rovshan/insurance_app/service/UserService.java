@@ -39,4 +39,9 @@ public class UserService {
     public User editUser(User user) {
         return userRepository.save(user);
     }
+
+    public User deleteUser(User user) {
+        userRepository.delete(user);
+        return null;
+    }
 }
