@@ -19,4 +19,11 @@ public class UserService {
     public User getUserById(long userId_) {
         return userRepository.findById(userId_).get();
     }
+
+    public User login(long userId_) {
+        if(userRepository.existsById(userId_)){
+            return userRepository.findById(userId_).get();
+        }
+        return null;
+    }
 }

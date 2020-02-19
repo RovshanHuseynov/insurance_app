@@ -20,6 +20,11 @@ public class UserController {
     }
 
     @GetMapping("get/{userId}")
+    public User login(@PathVariable("userId") long userId_){
+        return userService.login(userId_);
+    }
+
+    @GetMapping("get/{userId}")
     public User getUserById(@PathVariable("userId") long userId_){
         return userService.getUserById(userId_);
     }
