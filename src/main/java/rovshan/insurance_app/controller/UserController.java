@@ -19,7 +19,7 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @GetMapping("get/{userId}")
+    @GetMapping("login/{userId}")
     public User login(@PathVariable("userId") long userId_){
         return userService.login(userId_);
     }
