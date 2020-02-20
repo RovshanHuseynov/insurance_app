@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -17,12 +19,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @NotNull
+    @NotEmpty(message = "Name is mandatory")
     private String name;
-    @NotNull
-    private Role role;
-    @Size(min=3, message = "Password should contain minimum 3 characters")
+    @NotEmpty(message = "Surname is mandatory")
+    private String surname;
+    @NotEmpty(message = "Username is mandatory")
+    private String username;
+    @Size(min=3, message = "Password must contain minimum 3 characters")
     private String password;
-    @Email
+    @NotNull(message = "Status cannot be null")
+    private boolean status;
+    @NotNull(message = "Company cannot be null")
+    private Company company;
+    private LocalDateTime registerDate;
+    private LocalDateTime lastLoginDate;
+    private String phoneNumber;
+    @NotEmpty(message = "Role is mandatory")
+    private Role role;
+    @NotEmpty(message = "Email is mandatory") @Email(message = "Enter a valid email address")
     private String email;
 }

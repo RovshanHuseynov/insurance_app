@@ -16,23 +16,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getUserByCompanyId(long userId_) {
-        if(login(userId_).getRole().toString().equals("SUPERADMIN")){
-
-        }
-        else if(login(userId_).getRole().toString().equals("ADMIN")){
-
-        }
-        else if(login(userId_).getRole().toString().equals("OPERATOR")){
-
-        }
-        return null;
+    public User login(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password).get();
     }
 
-    public User login(long userId_) {
-        if(userRepository.existsById(userId_)){
-            return userRepository.findById(userId_).get();
-        }
+    public User getUserByCompanyId(long userId_) {
         return null;
     }
 
