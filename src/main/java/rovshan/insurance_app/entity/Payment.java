@@ -12,8 +12,8 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     @NotEmpty(message = "Value is mandatory")
     private String value;
 }

@@ -3,10 +3,7 @@ package rovshan.insurance_app.entity;
 import lombok.Data;
 import rovshan.insurance_app.enumm.Role;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -15,10 +12,11 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     @NotEmpty(message = "Name is mandatory")
     private String name;
     @NotEmpty(message = "Surname is mandatory")
@@ -30,7 +28,7 @@ public class User {
     @NotNull(message = "Status cannot be null")
     private boolean status;
     @NotNull(message = "Company cannot be null")
-    private Company company;
+    //private Company company;
     private LocalDateTime registerDate;
     private LocalDateTime lastLoginDate;
     private String phoneNumber;

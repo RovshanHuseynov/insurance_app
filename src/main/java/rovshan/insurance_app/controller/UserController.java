@@ -43,7 +43,7 @@ public class UserController {
         return userService.getUserByCompanyId(userId_);
     }
 
-    @PutMapping("edit/{userId}")
+    @PutMapping("edit")
     public User editUser(@RequestBody User user){
         return userService.editUser(user);
     }

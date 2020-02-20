@@ -13,8 +13,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     @NotEmpty(message = "Name is mandatory")
     private String name;
 }

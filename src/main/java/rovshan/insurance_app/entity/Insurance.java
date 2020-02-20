@@ -11,6 +11,6 @@ import javax.persistence.Id;
 @Entity
 public class Insurance {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 }

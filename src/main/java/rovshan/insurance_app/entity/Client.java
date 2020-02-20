@@ -12,8 +12,8 @@ import javax.validation.constraints.Size;
 @Entity
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     @Size(min=7, max=7, message = "FIN must contain 7 characters")
     private String fin;
 }
