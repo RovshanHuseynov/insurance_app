@@ -16,24 +16,46 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Size(max = 20)
     private Long id;
+
     @NotEmpty(message = "Name is mandatory")
+    @Size(max = 20)
     private String name;
+
     @NotEmpty(message = "Surname is mandatory")
+    @Size(max = 20)
     private String surname;
+
     @NotEmpty(message = "Username is mandatory")
+    @Size(max = 40)
     private String username;
-    @Size(min=3, message = "Password must contain minimum 3 characters")
+
+    @NotEmpty(message = "Password is mandatory")
+    @Size(min=3, max=20)
     private String password;
+
     @NotNull(message = "Status cannot be null")
+    @Size(max = 5)
     private boolean status;
+
     @NotNull(message = "Company cannot be null")
     //private Company company;
+
     private LocalDateTime registerDate;
+
     private LocalDateTime lastLoginDate;
+
+    @Size(max = 20)
     private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
     @NotEmpty(message = "Role is mandatory")
+    @Size(max = 20)
     private Role role;
-    @NotEmpty(message = "Email is mandatory") @Email(message = "Enter a valid email address")
+
+    @Size(max = 30)
+    @NotEmpty(message = "Email is mandatory")
+    @Email(message = "Enter a valid email address")
     private String email;
 }
