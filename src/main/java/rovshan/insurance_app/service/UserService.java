@@ -20,7 +20,7 @@ public class UserService {
         return userRepository.findByUsernameAndPassword(username, password).get();
     }
 
-    public User getUserByCompanyId(long userId_) {
+    public User getUserByCompanyId(Long userId_) {
         return null;
     }
 
@@ -28,8 +28,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User deleteUser(User user) {
-        userRepository.delete(user);
+    public User deleteUser(Long userId) {
+        userRepository.deleteById(userId);
         return null;
     }
 }
