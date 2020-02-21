@@ -2,10 +2,7 @@ package rovshan.insurance_app.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Data
@@ -13,6 +10,7 @@ import javax.validation.constraints.NotEmpty;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="payment_id")
     private Long id;
     @NotEmpty(message = "Value is mandatory")
     private String value;

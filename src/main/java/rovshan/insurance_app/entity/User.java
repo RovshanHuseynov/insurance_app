@@ -17,6 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Size(max = 20)
+    @Column(name="user_id")
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")
@@ -41,7 +42,9 @@ public class User {
     private boolean status;
 
     @NotNull(message = "Company cannot be null")
-    //private Company company;
+    @ManyToOne
+    @JoinColumn(name="user_id",foreignKey=@ForeignKey(name="user_id_FK"))
+    private Company company;
 
     private LocalDateTime registerDate;
 

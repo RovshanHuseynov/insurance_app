@@ -2,18 +2,15 @@ package rovshan.insurance_app.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="company_id")
     private Long id;
     @NotEmpty(message = "Name is mandatory")
     private String name;
