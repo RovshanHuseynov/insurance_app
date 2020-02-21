@@ -7,6 +7,7 @@ import rovshan.insurance_app.entity.User;
 import rovshan.insurance_app.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -29,8 +30,8 @@ public class UserController {
     }
 
     @GetMapping("get/{companyId}")
-    public User getUserByCompanyId(@Valid @PathVariable("userId") Long userId_){
-        return userService.getUserByCompanyId(userId_);
+    public List<User> getUsersByCompanyId(@Valid @PathVariable("companyId") Long companyId_){
+        return userService.getUsersByCompanyId(companyId_);
     }
 
     @PutMapping("edit")
