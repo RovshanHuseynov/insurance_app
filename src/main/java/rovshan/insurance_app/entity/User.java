@@ -29,6 +29,7 @@ public class User {
 
     @NotEmpty(message = "Username is mandatory")
     @Size(max = 40)
+    @Column(unique = true)
     private String username;
 
     @NotEmpty(message = "Password is mandatory")

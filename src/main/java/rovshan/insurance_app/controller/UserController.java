@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import rovshan.insurance_app.entity.User;
 import rovshan.insurance_app.service.UserService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -16,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public User createUser(@RequestBody User user){
+    public User createUser(@Valid @RequestBody User user){
         if(user != null) {
             return userService.createUser(user);
         }
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("login/{username},{password}")
-    public User login(@PathVariable("username") String username_, @PathVariable("password") String password_){
+    public User login(@Valid @PathVariable("username") String username_, @Valid @PathVariable("password") String password_){
         if(username_ == null) {
             throw new IllegalArgumentException("Email cannot be null");
         }
@@ -39,17 +41,17 @@ public class UserController {
     }
 
     @GetMapping("get/{companyId}")
-    public User getUserByCompanyId(@PathVariable("userId") Long userId_){
+    public User getUserByCompanyId(@Valid @PathVariable("userId") Long userId_){
         return userService.getUserByCompanyId(userId_);
     }
 
     @PutMapping("edit")
-    public User editUser(@RequestBody User user){
+    public User editUser(@Valid @RequestBody User user){
         return userService.editUser(user);
     }
 
     @DeleteMapping("delete/{userId}")
-    public User deleteUser(@PathVariable("userId") Long userId_){
+    public User deleteUser(@Valid @PathVariable("userId") Long userId_){
         return userService.deleteUser(userId_);
     }
 }
