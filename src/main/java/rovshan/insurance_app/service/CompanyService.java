@@ -16,8 +16,8 @@ public class CompanyService {
     }
 
     public Company create(Company company) {
-        Optional<Company> com = Optional.ofNullable(company);
-        return companyRepository.save(com.orElseThrow(() -> new Exception("CREATE COMPANY operation could not be executed. Company could not found")));
+        Optional<Company> companyOP = Optional.ofNullable(company);
+        return companyRepository.save(companyOP.orElseThrow(() -> new Exception("CREATE COMPANY operation could not be executed. Company could not found")));
     }
 
     public Company getCompany(Long companyId) {
@@ -26,12 +26,19 @@ public class CompanyService {
     }
 
     public Company editCompany(Company company) {
-        Optional<Company> com = Optional.ofNullable(company);
-        return companyRepository.save(com.orElseThrow(() -> new Exception("EDIT COMPANY operation could not be executed. user could not found")));
+        Optional<Company> companyOP = Optional.ofNullable(company);
+        return companyRepository.save(companyOP.orElseThrow(() -> new Exception("EDIT COMPANY operation could not be executed. user could not found")));
     }
 
-    public Company deleteCompany(long companyId) {
-        companyRepository.deleteById(companyId);
-        return null;
+    public Company deleteCompany(Long companyId) {
+        Optional<Company> companyOP = companyRepository.findById(companyId);
+
+        if(companyOP.isPresent()){
+            companyRepository.delete(companyOP.get());
+            return companyOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE COMPANY operation could not be executed. COMPANY with %s id could not found", companyId));
+        }
     }
 }

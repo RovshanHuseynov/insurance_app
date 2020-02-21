@@ -17,8 +17,8 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        Optional<User> userOp = Optional.ofNullable(user);
-        return userRepository.save(userOp.orElseThrow(() -> new Exception("CREATE USER operation could not be executed. User could not found")));
+        Optional<User> userOP = Optional.ofNullable(user);
+        return userRepository.save(userOP.orElseThrow(() -> new Exception("CREATE USER operation could not be executed. User could not found")));
     }
 
     public User login(String username, String password) {
@@ -31,15 +31,15 @@ public class UserService {
     }
 
     public User editUser(User user) {
-        Optional<User> userOp = Optional.ofNullable(userRepository.save(user));
-        return userRepository.save(userOp.orElseThrow(() -> new Exception("EDIT USER operation could not be executed. user could not found")));
+        Optional<User> userOP = Optional.ofNullable(userRepository.save(user));
+        return userRepository.save(userOP.orElseThrow(() -> new Exception("EDIT USER operation could not be executed. user could not found")));
     }
 
     public User deleteUser(Long userId) {
-        Optional<User> userOp = userRepository.findById(userId);
-        if(userOp.isPresent()){
-            userRepository.delete(userOp.get());
-            return userOp.get();
+        Optional<User> userOP = userRepository.findById(userId);
+        if(userOP.isPresent()){
+            userRepository.delete(userOP.get());
+            return userOP.get();
         }
         else{
             throw new Exception(String.format("DELETE USER operation could not be executed. User with %s id could not found", userId));
