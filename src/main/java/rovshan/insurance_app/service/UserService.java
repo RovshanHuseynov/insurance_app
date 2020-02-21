@@ -29,11 +29,18 @@ public class UserService {
     }
 
     public User editUser(User user) {
-        return userRepository.save(user);
+        Optional<User> userOp = Optional.ofNullable(userRepository.save(user));
+        return userOp.orElseThrow(() -> new Exception("edit operation could not be executed. user could not found"));
     }
 
     public User deleteUser(Long userId) {
-        userRepository.deleteById(userId);
-        return null;
+        Optional<User> userOp = userRepository.findById(userId);
+        if(userOp.isPresent()){
+            userRepository.delete(userOp.get());
+            return userOp.get();
+        }
+        else{
+            throw new Exception(String.format("User with %s id could not found", userId));
+        }
     }
 }
