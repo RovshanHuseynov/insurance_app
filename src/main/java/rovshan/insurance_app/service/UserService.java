@@ -16,7 +16,8 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        return userRepository.save(user);
+        Optional<User> userOp = Optional.ofNullable(user);
+        return userRepository.save(userOp.orElseThrow(() -> new Exception("CREATE USER operation could not be executed. user could not found")));
     }
 
     public User login(String username, String password) {
@@ -30,7 +31,7 @@ public class UserService {
 
     public User editUser(User user) {
         Optional<User> userOp = Optional.ofNullable(userRepository.save(user));
-        return userOp.orElseThrow(() -> new Exception("edit operation could not be executed. user could not found"));
+        return userRepository.save(userOp.orElseThrow(() -> new Exception("EDIT USE operation could not be executed. user could not found")));
     }
 
     public User deleteUser(Long userId) {

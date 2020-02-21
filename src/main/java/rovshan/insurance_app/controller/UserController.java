@@ -20,25 +20,12 @@ public class UserController {
 
     @PostMapping("/add")
     public User createUser(@Valid @RequestBody User user){
-        if(user != null) {
-            return userService.createUser(user);
-        }
-        else{
-            throw new IllegalArgumentException("Input cannot be null");
-        }
+        return userService.createUser(user);
     }
 
     @GetMapping("login/{username},{password}")
     public User login(@Valid @PathVariable("username") String username_, @Valid @PathVariable("password") String password_){
-        if(username_ == null) {
-            throw new IllegalArgumentException("Email cannot be null");
-        }
-        else if(password_ == null){
-            throw new IllegalArgumentException("Password cannot be null");
-        }
-        else{
-            return userService.login(username_, password_);
-        }
+        return userService.login(username_, password_);
     }
 
     @GetMapping("get/{companyId}")
