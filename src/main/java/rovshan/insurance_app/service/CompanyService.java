@@ -26,7 +26,8 @@ public class CompanyService {
     }
 
     public Company editCompany(Company company) {
-        return companyRepository.save(company);
+        Optional<Company> com = Optional.ofNullable(company);
+        return companyRepository.save(com.orElseThrow(() -> new Exception("EDIT COMPANY operation could not be executed. user could not found")));
     }
 
     public Company deleteCompany(long companyId) {
