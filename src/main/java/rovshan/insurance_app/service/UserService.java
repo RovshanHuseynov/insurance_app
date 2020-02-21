@@ -18,7 +18,7 @@ public class UserService {
 
     public User createUser(User user) {
         Optional<User> userOp = Optional.ofNullable(user);
-        return userRepository.save(userOp.orElseThrow(() -> new Exception("CREATE USER operation could not be executed. user could not found")));
+        return userRepository.save(userOp.orElseThrow(() -> new Exception("CREATE USER operation could not be executed. User could not found")));
     }
 
     public User login(String username, String password) {

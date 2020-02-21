@@ -20,7 +20,7 @@ public class CompanyController {
     }
 
     @GetMapping("get/{companyId}")
-    public Company getCompany(@PathVariable("companyId") long companyId_){
+    public Company getCompany(@PathVariable("companyId") Long companyId_){
         return companyService.getCompany(companyId_);
     }
 
@@ -30,7 +30,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/delete/{companyId}")
-    public Company deleteCompany(@PathVariable long companyId){
+    public Company deleteCompany(@PathVariable Long companyId){
         return companyService.deleteCompany(companyId);
     }
 }
