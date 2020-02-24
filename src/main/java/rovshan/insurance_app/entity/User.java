@@ -3,6 +3,8 @@ package rovshan.insurance_app.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import rovshan.insurance_app.enumm.Role;
 
 import javax.persistence.*;
@@ -10,7 +12,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -50,9 +52,11 @@ public class User {
     @JoinColumn(name="company_id",foreignKey=@ForeignKey(name="company_id_FK"))
     private Company company;
 
-    private LocalDateTime registerDate;
+    @CreatedDate
+    private Date registerDate;
 
-    private LocalDateTime lastLoginDate;
+    @LastModifiedDate
+    private Date lastLoginDate;
 
     @Size(max = 20)
     private String phoneNumber;
@@ -62,8 +66,9 @@ public class User {
     @Size(max = 20)
     private Role role;
 
-    @Size(max = 30)
     @NotEmpty(message = "Email is mandatory")
+    @Size(max = 30)
     @Email(message = "Enter a valid email address")
+    @Column(unique = true)
     private String email;
 }
