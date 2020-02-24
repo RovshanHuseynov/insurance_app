@@ -12,6 +12,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="company_id")
     private Long id;
+
     @NotEmpty(message = "Name is mandatory")
     private String name;
 }

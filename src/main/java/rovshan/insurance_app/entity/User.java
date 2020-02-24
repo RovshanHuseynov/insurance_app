@@ -43,7 +43,7 @@ public class User {
 
     @NotNull(message = "Company cannot be null")
     @ManyToOne
-    @JoinColumn(name="user_id",foreignKey=@ForeignKey(name="user_id_FK"))
+    @JoinColumn(name="company_id",foreignKey=@ForeignKey(name="company_id_FK"))
     private Company company;
 
     private LocalDateTime registerDate;
