@@ -21,7 +21,7 @@ import java.util.Date;
 @Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Size(max = 20)
     @Column(name="user_id")
     private Long id;

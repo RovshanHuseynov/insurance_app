@@ -23,16 +23,10 @@ public class CompanyController {
         return companyService.create(company);
     }
 
-    @GetMapping("get/{companyId}")
-    public Company getCompany(@PathVariable("companyId") Long companyId_){
-        return companyService.getCompany(companyId_);
-    }
-
-    @GetMapping("get/{companyId}")
+    @GetMapping("{companyId}/users")
     public List<User> getUsersByCompanyId(@Valid @PathVariable("companyId") Long companyId_){
         return null;
     }
-
 
     @PutMapping("/edit")
     public Company editCompany(@RequestBody Company company){
