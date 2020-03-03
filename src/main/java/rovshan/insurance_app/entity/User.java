@@ -55,7 +55,7 @@ public class User {
     @NotNull(message = "Company cannot be null")
     @ManyToOne
     @JoinColumn(name="company_id",foreignKey=@ForeignKey(name="company_id_FK"))
-    @Column(name="company_id")
+    @Column(name="company")
     private Company company;
 
     @CreatedDate
