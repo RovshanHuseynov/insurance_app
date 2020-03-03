@@ -54,19 +54,19 @@ public class User {
     @NotNull(message = "Company cannot be null")
     @ManyToOne
     @JoinColumn(name="company_id",foreignKey=@ForeignKey(name="company_id_FK"))
-    @Column(name="companyId")
+    @Column(name="company_id")
     private Company company;
 
     @CreatedDate
-    @Column(name="registerDate")
+    @Column(name="register_date")
     private Date registerDate;
 
     @LastModifiedDate
-    @Column(name="lastLoginDate")
+    @Column(name="last_login_date")
     private Date lastLoginDate;
 
     @Size(max = 20)
-    @Column(name="phoneNumber")
+    @Column(name="phone_number")
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
