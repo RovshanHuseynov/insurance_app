@@ -2,7 +2,7 @@ package rovshan.insurance_app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rovshan.insurance_app.entity.User;
+import rovshan.insurance_app.entity.Employer;
 import rovshan.insurance_app.exception.Exception;
 import rovshan.insurance_app.repository.UserRepository;
 
@@ -17,32 +17,32 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User createUser(User user) {
-        Optional<User> userOP = Optional.ofNullable(user);
+    public Employer createUser(Employer employer) {
+        Optional<Employer> userOP = Optional.ofNullable(employer);
         return userRepository.save(userOP.orElseThrow(() -> new Exception("CREATE USER operation could not be executed. User could not found")));
     }
 
-    public User login(String username, String password) {
+    public Employer login(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password).orElseThrow(() ->
                 new Exception(String.format("LOGIN operation could not be executed. %s and %s could not be found", username, password)));
     }
 
-    public User get(Long userId_) {
+    public Employer get(Long userId_) {
         return userRepository.findById(userId_).orElseThrow(() ->
                 new Exception(String.format("GET operation could not be executed. %d could not be found", userId_)));
     }
 
-    public List<User> getUsersByCompanyId(Long companyId_) {
+    public List<Employer> getUsersByCompanyId(Long companyId_) {
         return userRepository.findUsersByCompanyId(companyId_);
     }
 
-    public User editUser(User user) {
-        Optional<User> userOP = Optional.ofNullable(userRepository.save(user));
+    public Employer editUser(Employer employer) {
+        Optional<Employer> userOP = Optional.ofNullable(userRepository.save(employer));
         return userRepository.save(userOP.orElseThrow(() -> new Exception("EDIT USER operation could not be executed. user could not found")));
     }
 
-    public User deleteUser(Long userId) {
-        Optional<User> userOP = userRepository.findById(userId);
+    public Employer deleteUser(Long userId) {
+        Optional<Employer> userOP = userRepository.findById(userId);
         if(userOP.isPresent()){
             userRepository.delete(userOP.get());
             return userOP.get();

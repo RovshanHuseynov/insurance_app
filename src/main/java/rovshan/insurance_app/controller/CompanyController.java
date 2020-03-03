@@ -3,13 +3,14 @@ package rovshan.insurance_app.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import rovshan.insurance_app.entity.Company;
-import rovshan.insurance_app.entity.User;
+import rovshan.insurance_app.entity.Employer;
 import rovshan.insurance_app.service.CompanyService;
 import rovshan.insurance_app.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
 
+@RestController
 @RequestMapping("/company")
 public class CompanyController {
     private final CompanyService companyService;
@@ -31,7 +32,7 @@ public class CompanyController {
     }
 
     @GetMapping("/{companyId}/users")
-    public List<User> getUsersByCompanyId(@Valid @PathVariable("companyId") Long companyId_){
+    public List<Employer> getUsersByCompanyId(@Valid @PathVariable("companyId") Long companyId_){
         return userService.getUsersByCompanyId(companyId_);
     }
 

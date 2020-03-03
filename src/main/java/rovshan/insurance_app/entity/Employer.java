@@ -19,7 +19,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "user")
-public class User {
+public class Employer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotEmpty(message = "Id is mandatory")
