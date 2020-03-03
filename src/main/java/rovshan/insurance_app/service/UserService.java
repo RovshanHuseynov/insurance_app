@@ -1,16 +1,19 @@
 package rovshan.insurance_app.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rovshan.insurance_app.entity.User;
 import rovshan.insurance_app.exception.Exception;
 import rovshan.insurance_app.repository.UserRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(@Autowired UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -22,6 +25,15 @@ public class UserService {
     public User login(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password).orElseThrow(() ->
                 new Exception(String.format("LOGIN operation could not be executed. %s and %s could not be found", username, password)));
+    }
+
+    public User get(Long userId_) {
+        return userRepository.findById(userId_).orElseThrow(() ->
+                new Exception(String.format("GET operation could not be executed. %d could not be found", userId_)));
+    }
+
+    public List<User> getUsersByCompanyId(Long companyId_) {
+        return userRepository.findUsersByCompanyId(companyId_);
     }
 
     public User editUser(User user) {

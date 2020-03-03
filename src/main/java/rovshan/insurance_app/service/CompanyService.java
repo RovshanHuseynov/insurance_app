@@ -20,9 +20,9 @@ public class CompanyService {
         return companyRepository.save(companyOP.orElseThrow(() -> new Exception("CREATE COMPANY operation could not be executed. Company could not found")));
     }
 
-    public Company getCompany(Long companyId) {
+    public Company get(Long companyId) {
         return companyRepository.findById(companyId).orElseThrow(() ->
-                new Exception(String.format("GET COMANY operation could not be executed. Company with %s id could not found", companyId)));
+                new Exception(String.format("GET COMPANY operation could not be executed. Company with %s id could not found", companyId)));
     }
 
     public Company editCompany(Company company) {

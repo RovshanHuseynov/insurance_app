@@ -25,6 +25,11 @@ public class UserController {
         return userService.login(username_, password_);
     }
 
+    @GetMapping("get/{userId}")
+    public User get(@Valid @PathVariable("userId") Long userId_){
+        return userService.get(userId_);
+    }
+
     @PutMapping("edit")
     public User editUser(@Valid @RequestBody User user){
         return userService.editUser(user);
