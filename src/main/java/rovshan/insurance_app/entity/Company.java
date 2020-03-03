@@ -16,11 +16,13 @@ import javax.validation.constraints.Size;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotEmpty(message = "Id is mandatory")
+    @Size(max = 20)
     @Column(name="company_id")
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")
-    @Size(max = 20)
+    @Size(max = 40)
     @Column(name="name")
     private String name;
 }

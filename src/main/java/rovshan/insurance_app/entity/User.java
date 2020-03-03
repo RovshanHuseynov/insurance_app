@@ -22,6 +22,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotEmpty(message = "Id is mandatory")
     @Size(max = 20)
     @Column(name="user_id")
     private Long id;

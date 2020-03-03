@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,6 +16,8 @@ import javax.persistence.*;
 public class Insurance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotEmpty(message = "Id is mandatory")
+    @Size(max = 20)
     @Column(name="insurance_id")
     private Long id;
 }

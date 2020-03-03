@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,8 +16,11 @@ import javax.validation.constraints.NotEmpty;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotEmpty(message = "Id is mandatory")
+    @Size(max = 20)
     @Column(name="payment_id")
     private Long id;
+
     @NotEmpty(message = "Value is mandatory")
     private String value;
 }
