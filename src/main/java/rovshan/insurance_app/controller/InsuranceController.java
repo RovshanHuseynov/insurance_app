@@ -31,4 +31,9 @@ public class InsuranceController {
     public List<Insurance> readAll(){
         return insuranceService.readAll();
     }
+
+    @PutMapping("/update")
+    public Insurance update(@Valid @RequestBody Insurance insurance){
+        return insuranceService.update(insurance);
+    }
 }

@@ -43,4 +43,10 @@ public class InsuranceService {
             return insurances;
         }
     }
+
+    public Insurance update(Insurance insurance) {
+        Optional<Insurance> insuranceOP = Optional.ofNullable(insurance);
+        return insuranceRepository.save(insuranceOP.orElseThrow(() ->
+                new Exception("UPDATE INSURANCE operation could not be executed. Input data is invalid")));
+    }
 }
