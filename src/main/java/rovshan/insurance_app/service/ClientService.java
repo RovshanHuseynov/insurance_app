@@ -43,4 +43,10 @@ public class ClientService {
             return clients;
         }
     }
+
+    public Client update(Client client) {
+        Optional<Client> clientOP = Optional.ofNullable(client);
+        return clientRepository.save(clientOP.orElseThrow(() ->
+                new Exception("UPDATE CLIENT operation could not be executed. Input data is invalid")));
+    }
 }

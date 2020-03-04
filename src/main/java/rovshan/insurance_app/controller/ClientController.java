@@ -31,4 +31,11 @@ public class ClientController {
     public List<Client> readAll(){
         return clientService.readAll();
     }
+
+    @PutMapping("/update")
+    public Client update(@Valid @RequestBody Client client){
+        return clientService.update(client);
+    }
+
+
 }
