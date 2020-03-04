@@ -20,4 +20,8 @@ public class Company {
     @Size(max = 20)
     @Column(name="company_id", unique = true)
     private Long id;
+
+    @NotEmpty(message = "Name is mandatory")
+    @Size(max = 30)
+    private String name;
 }

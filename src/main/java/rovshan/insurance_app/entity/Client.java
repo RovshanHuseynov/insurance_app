@@ -20,4 +20,8 @@ public class Client {
     @Size(max = 20)
     @Column(name="client_id", unique = true)
     private Long id;
+
+    @NotEmpty(message = "Name is mandatory")
+    @Size(max = 20)
+    private String name;
 }
