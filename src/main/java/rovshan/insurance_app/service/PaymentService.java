@@ -49,4 +49,16 @@ public class PaymentService {
         return paymentRepository.save(paymentOP.orElseThrow(() ->
                 new Exception("UPDATE PAYMENT operation could not be executed. Input data is invalid")));
     }
+
+    public Payment delete(Long paymentId_) {
+        Optional<Payment> paymentOP = paymentRepository.findById(paymentId_);
+
+        if(paymentOP.isPresent()){
+            paymentRepository.delete(paymentOP.get());
+            return paymentOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE PAYMENT operation could not be executed. PAYMENT with %s id could not found", paymentId_));
+        }
+    }
 }
