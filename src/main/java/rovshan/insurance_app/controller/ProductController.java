@@ -6,6 +6,7 @@ import rovshan.insurance_app.entity.Product;
 import rovshan.insurance_app.service.ProductService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -24,5 +25,10 @@ public class ProductController {
     @GetMapping("/read/{productId}")
     public Product read(@Valid @PathVariable("productId") Long productId_){
         return productService.read(productId_);
+    }
+
+    @GetMapping("/readAll")
+    public List<Product> readAll(){
+        return productService.readAll();
     }
 }
