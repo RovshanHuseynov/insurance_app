@@ -12,11 +12,11 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "employer")
-public class Employer {
+@Table(name = "employee")
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="employer_id", unique = true)
+    @Column(name="employee_id", unique = true)
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")

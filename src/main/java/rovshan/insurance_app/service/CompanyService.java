@@ -37,7 +37,7 @@ public class CompanyService {
         }
 
         if(companies.size() == 0){
-            throw new Exception("READ ALL COMPANY operation could not be executed. There are no any companies.");
+            throw new Exception("READ ALL COMPANIES operation could not be executed. There are no any companies.");
         }
         else {
             return companies;
