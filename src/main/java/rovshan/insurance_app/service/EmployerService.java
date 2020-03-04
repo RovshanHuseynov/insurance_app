@@ -21,4 +21,9 @@ public class EmployerService {
         return employerRepository.save(employerOP.orElseThrow(() ->
                 new Exception("CREATE EMPLOYER operation could not be executed. EMPLOYER could not found")));
     }
+
+    public Employer read(Long employerId_) {
+        return employerRepository.findById(employerId_).orElseThrow(() ->
+                new Exception(String.format("READ operation could not be executed. %d could not be found", employerId_)));
+    }
 }
