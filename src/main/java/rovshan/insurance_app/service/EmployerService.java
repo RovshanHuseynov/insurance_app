@@ -6,6 +6,7 @@ import rovshan.insurance_app.entity.Employer;
 import rovshan.insurance_app.exception.Exception;
 import rovshan.insurance_app.repository.EmployerRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +29,12 @@ public class EmployerService {
                 new Exception(String.format("READ EMPLOYER operation could not be executed. %d could not be found", employerId_)));
     }
 
-    public Iterable<Employer> readAll() {
-        return employerRepository.findAll();
+    public List<Employer> readAll() {
+        List<Employer> employers = new ArrayList<>();
+        for(Employer e : employerRepository.findAll()){
+            employers.add(e);
+        }
+        return employers;
     }
 
     public Employer update(Employer employer) {

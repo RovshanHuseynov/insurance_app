@@ -6,6 +6,7 @@ import rovshan.insurance_app.entity.Employer;
 import rovshan.insurance_app.service.EmployerService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/employer")
@@ -27,7 +28,7 @@ public class EmployerController {
     }
 
     @GetMapping("/readAll")
-    public Iterable<Employer> readAll(){
+    public List<Employer> readAll(){
         return employerService.readAll();
     }
 

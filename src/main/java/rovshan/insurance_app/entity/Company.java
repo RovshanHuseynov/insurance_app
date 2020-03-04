@@ -20,6 +20,6 @@ public class Company {
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")
-    @Size(max = 30)
+    @Size(max = 40)
     private String name;
 }
