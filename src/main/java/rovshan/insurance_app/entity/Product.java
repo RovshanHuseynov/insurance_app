@@ -19,7 +19,7 @@ public class Product {
     @Column(name="product_id", unique = true)
     private Long id;
 
-    @NotEmpty(message = "Name is mandatory")
+    @NotEmpty(message = "FirstAmount is mandatory")
     @Size(max = 20)
     @Column(name="first_amount")
     private String firstAmount;
