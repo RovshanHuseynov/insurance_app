@@ -21,4 +21,9 @@ public class InsuranceService {
         return insuranceRepository.save(insuranceOP.orElseThrow(() ->
                 new Exception("CREATE INSURANCE operation could not be executed. Input data is invalid")));
     }
+
+    public Insurance read(Long insuranceId_) {
+        return insuranceRepository.findById(insuranceId_).orElseThrow(() ->
+                new Exception(String.format("READ INSURANCE operation could not be executed. INSURANCE with %d id could not be found", insuranceId_)));
+    }
 }
