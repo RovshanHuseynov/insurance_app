@@ -21,4 +21,10 @@ public class PaymentController {
         return paymentService.create(payment);
     }
 
+    @GetMapping("/read/{paymentId}")
+    public Payment read(@Valid @PathVariable("paymentId") Long paymentId_){
+        return paymentService.read(paymentId_);
+    }
+
+
 }

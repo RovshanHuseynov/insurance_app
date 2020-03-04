@@ -21,4 +21,9 @@ public class PaymentService {
         return paymentRepository.save(paymentOP.orElseThrow(() ->
                 new Exception("CREATE PAYMENT operation could not be executed. Input data is invalid")));
     }
+
+    public Payment read(Long paymentId_) {
+        return paymentRepository.findById(paymentId_).orElseThrow(() ->
+                new Exception(String.format("READ PAYMENT operation could not be executed. PAYMENT with %d id could not be found", paymentId_)));
+    }
 }
