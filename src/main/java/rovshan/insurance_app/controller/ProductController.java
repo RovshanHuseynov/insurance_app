@@ -20,4 +20,9 @@ public class ProductController {
     public Product create(@Valid @RequestBody Product product){
         return productService.create(product);
     }
+
+    @GetMapping("/read/{productId}")
+    public Product read(@Valid @PathVariable("productId") Long productId_){
+        return productService.read(productId_);
+    }
 }

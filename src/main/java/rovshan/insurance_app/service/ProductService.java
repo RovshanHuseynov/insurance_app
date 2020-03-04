@@ -19,6 +19,11 @@ public class ProductService {
     public Product create(Product product) {
         Optional<Product> productOP = Optional.ofNullable(product);
         return productRepository.save(productOP.orElseThrow(() ->
-                new Exception("CREATE PRODUCT operation could not be executed. PRODUCT could not found")));
+                new Exception("CREATE PRODUCT operation could not be executed. Input data is invalid")));
+    }
+
+    public Product read(Long productId_) {
+        return productRepository.findById(productId_).orElseThrow(() ->
+                new Exception(String.format("READ PRODUCT operation could not be executed. PRODUCT with %d id could not be found", productId_)));
     }
 }

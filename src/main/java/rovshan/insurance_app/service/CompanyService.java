@@ -21,7 +21,7 @@ public class CompanyService {
     public Company create(Company company) {
         Optional<Company> companyOP = Optional.ofNullable(company);
         return companyRepository.save(companyOP.orElseThrow(() ->
-                new Exception("CREATE COMPANY operation could not be executed. Company could not found")));
+                new Exception("CREATE COMPANY operation could not be executed. Input data is invalid")));
     }
 
     public Company read(Long companyId_) {
