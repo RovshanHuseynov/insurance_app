@@ -16,13 +16,18 @@ public class EmployerController {
         this.employerService = employerService;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public Employer create(@Valid @RequestBody Employer employer){
         return employerService.create(employer);
     }
 
-    @GetMapping("/get/{employerId}")
+    @GetMapping("/read/{employerId}")
     public Employer read(@Valid @PathVariable("employerId") Long employerId_){
         return employerService.read(employerId_);
+    }
+
+    @PutMapping("/update")
+    public Employer update(@Valid @RequestBody Employer employer){
+        return employerService.update(employer);
     }
 }
