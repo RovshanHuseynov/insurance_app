@@ -36,4 +36,9 @@ public class InsuranceController {
     public Insurance update(@Valid @RequestBody Insurance insurance){
         return insuranceService.update(insurance);
     }
+
+    @DeleteMapping("/delete/{insuranceId}")
+    public Insurance delete(@Valid @PathVariable("insuranceId") Long insuranceId_){
+        return insuranceService.delete(insuranceId_);
+    }
 }

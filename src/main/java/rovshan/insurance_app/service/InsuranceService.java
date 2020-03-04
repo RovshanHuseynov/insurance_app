@@ -49,4 +49,16 @@ public class InsuranceService {
         return insuranceRepository.save(insuranceOP.orElseThrow(() ->
                 new Exception("UPDATE INSURANCE operation could not be executed. Input data is invalid")));
     }
+
+    public Insurance delete(Long insuranceId_) {
+        Optional<Insurance> insuranceOP = insuranceRepository.findById(insuranceId_);
+
+        if(insuranceOP.isPresent()){
+            insuranceRepository.delete(insuranceOP.get());
+            return insuranceOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE INSURANCE operation could not be executed. INSURANCE with %s id could not found", insuranceId_));
+        }
+    }
 }
