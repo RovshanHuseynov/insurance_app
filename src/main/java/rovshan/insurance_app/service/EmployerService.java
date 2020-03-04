@@ -32,4 +32,16 @@ public class EmployerService {
         return employerRepository.save(employerOP.orElseThrow(() ->
                 new Exception("UPDATE EMPLOYER operation could not be executed. employer could not found")));
     }
+
+    public Employer delete(Long employerId_) {
+        Optional<Employer> employerOP = employerRepository.findById(employerId_);
+
+        if(employerOP.isPresent()){
+            employerRepository.delete(employerOP.get());
+            return employerOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE EMPLOYER operation could not be executed. EMPLOYER with %s id could not found", employerId_));
+        }
+    }
 }

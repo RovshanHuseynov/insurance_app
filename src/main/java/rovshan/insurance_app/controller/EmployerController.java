@@ -30,4 +30,9 @@ public class EmployerController {
     public Employer update(@Valid @RequestBody Employer employer){
         return employerService.update(employer);
     }
+
+    @DeleteMapping("/delete/{employerId}")
+    public Employer delete(@Valid @PathVariable("employerId") Long employerId_){
+        return employerService.delete(employerId_);
+    }
 }
