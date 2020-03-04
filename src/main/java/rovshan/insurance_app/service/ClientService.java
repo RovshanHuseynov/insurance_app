@@ -21,4 +21,9 @@ public class ClientService {
         return clientRepository.save(clientOP.orElseThrow(() ->
                 new Exception("CREATE CLIENT operation could not be executed. Input data is invalid")));
     }
+
+    public Client read(Long clientId_) {
+        return clientRepository.findById(clientId_).orElseThrow(() ->
+                new Exception(String.format("READ CLIENT operation could not be executed. CLIENT with %d id could not be found", clientId_)));
+    }
 }

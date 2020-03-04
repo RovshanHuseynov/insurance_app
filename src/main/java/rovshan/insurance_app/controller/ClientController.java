@@ -1,10 +1,7 @@
 package rovshan.insurance_app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rovshan.insurance_app.entity.Client;
 import rovshan.insurance_app.service.ClientService;
 
@@ -23,4 +20,11 @@ public class ClientController {
     public Client create(@Valid @RequestBody Client client){
         return clientService.create(client);
     }
+
+    @GetMapping("/read/{clientId}")
+    public Client read(@Valid @PathVariable("clientId") Long clientId_){
+        return clientService.read(clientId_);
+    }
+
+    
 }
