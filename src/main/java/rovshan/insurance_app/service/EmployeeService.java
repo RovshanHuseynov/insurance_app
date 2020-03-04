@@ -26,7 +26,7 @@ public class EmployeeService {
 
     public Employee read(Long employeeId_) {
         return employeeRepository.findById(employeeId_).orElseThrow(() ->
-                new Exception(String.format("READ EMPLOYEE operation could not be executed. %d could not be found", employeeId_)));
+                new Exception(String.format("READ EMPLOYEE operation could not be executed. EMPLOYEE with %d id could not be found", employeeId_)));
     }
 
     public List<Employee> readAll() {
@@ -46,7 +46,7 @@ public class EmployeeService {
     public Employee update(Employee employee) {
         Optional<Employee> employeeOP = Optional.ofNullable(employee);
         return employeeRepository.save(employeeOP.orElseThrow(() ->
-                new Exception("UPDATE EMPLOYEE operation could not be executed. employee could not found")));
+                new Exception("UPDATE EMPLOYEE operation could not be executed. EMPLOYEE could not found")));
     }
 
     public Employee delete(Long employeeId_) {

@@ -26,7 +26,7 @@ public class CompanyService {
 
     public Company read(Long companyId_) {
         return companyRepository.findById(companyId_).orElseThrow(() ->
-                new Exception(String.format("READ COMPANY operation could not be executed. Company with %d id could not found", companyId_)));
+                new Exception(String.format("READ COMPANY operation could not be executed. COMPANY with %d id could not found", companyId_)));
     }
 
     public List<Company> readAll() {
@@ -42,5 +42,11 @@ public class CompanyService {
         else {
             return companies;
         }
+    }
+
+    public Company update(Company company) {
+        Optional<Company> companyOP = Optional.ofNullable(company);
+        return companyRepository.save(companyOP.orElseThrow(() ->
+                new Exception("UPDATE COMPANY operation could not be executed. COMPANY could not found")));
     }
 }

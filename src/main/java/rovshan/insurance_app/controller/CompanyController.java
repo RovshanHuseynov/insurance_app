@@ -31,4 +31,9 @@ public class CompanyController {
     public List<Company> readAll(){
         return companyService.readAll();
     }
+
+    @PutMapping("/update")
+    public Company update(@Valid @RequestBody Company company){
+        return companyService.update(company);
+    }
 }
