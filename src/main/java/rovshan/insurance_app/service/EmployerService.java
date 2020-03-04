@@ -6,6 +6,7 @@ import rovshan.insurance_app.entity.Employer;
 import rovshan.insurance_app.exception.Exception;
 import rovshan.insurance_app.repository.EmployerRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,6 +26,10 @@ public class EmployerService {
     public Employer read(Long employerId_) {
         return employerRepository.findById(employerId_).orElseThrow(() ->
                 new Exception(String.format("READ EMPLOYER operation could not be executed. %d could not be found", employerId_)));
+    }
+
+    public Iterable<Employer> readAll() {
+        return employerRepository.findAll();
     }
 
     public Employer update(Employer employer) {

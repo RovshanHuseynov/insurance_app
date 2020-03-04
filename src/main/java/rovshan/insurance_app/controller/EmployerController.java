@@ -26,6 +26,11 @@ public class EmployerController {
         return employerService.read(employerId_);
     }
 
+    @GetMapping("/readAll")
+    public Iterable<Employer> readAll(){
+        return employerService.readAll();
+    }
+
     @PutMapping("/update")
     public Employer update(@Valid @RequestBody Employer employer){
         return employerService.update(employer);
