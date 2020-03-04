@@ -49,4 +49,16 @@ public class ProductService {
         return productRepository.save(productOP.orElseThrow(() ->
                 new Exception("UPDATE EMPLOYEE operation could not be executed. Input data is invalid")));
     }
+
+    public Product delete(Long productId_) {
+        Optional<Product> productOP = productRepository.findById(productId_);
+
+        if(productOP.isPresent()){
+            productRepository.delete(productOP.get());
+            return productOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE PRODUCT operation could not be executed. PRODUCT with %s id could not found", productId_));
+        }
+    }
 }
