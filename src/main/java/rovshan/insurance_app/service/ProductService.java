@@ -43,4 +43,10 @@ public class ProductService {
             return products;
         }
     }
+
+    public Product update(Product product) {
+        Optional<Product> productOP = Optional.ofNullable(product);
+        return productRepository.save(productOP.orElseThrow(() ->
+                new Exception("UPDATE EMPLOYEE operation could not be executed. Input data is invalid")));
+    }
 }

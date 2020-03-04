@@ -46,7 +46,7 @@ public class EmployeeService {
     public Employee update(Employee employee) {
         Optional<Employee> employeeOP = Optional.ofNullable(employee);
         return employeeRepository.save(employeeOP.orElseThrow(() ->
-                new Exception("UPDATE EMPLOYEE operation could not be executed. EMPLOYEE could not found")));
+                new Exception("UPDATE EMPLOYEE operation could not be executed. Input data is invalid")));
     }
 
     public Employee delete(Long employeeId_) {

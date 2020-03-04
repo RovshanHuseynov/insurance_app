@@ -31,4 +31,9 @@ public class ProductController {
     public List<Product> readAll(){
         return productService.readAll();
     }
+
+    @PutMapping("/update")
+    public Product update(@Valid @RequestBody Product product){
+        return productService.update(product);
+    }
 }

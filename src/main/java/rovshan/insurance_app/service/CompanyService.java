@@ -47,7 +47,7 @@ public class CompanyService {
     public Company update(Company company) {
         Optional<Company> companyOP = Optional.ofNullable(company);
         return companyRepository.save(companyOP.orElseThrow(() ->
-                new Exception("UPDATE COMPANY operation could not be executed. COMPANY could not found")));
+                new Exception("UPDATE COMPANY operation could not be executed. Input data is invalid")));
     }
 
     public Company delete(Long companyId_) {
