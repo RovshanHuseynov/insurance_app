@@ -37,7 +37,7 @@ public class InsuranceService {
         }
 
         if(insurances.size() == 0){
-            throw new Exception("READ ALL INSURANCES operation could not be executed. There are no any products.");
+            throw new Exception("READ ALL INSURANCES operation could not be executed. There are no any insurances.");
         }
         else{
             return insurances;
