@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @AllArgsConstructor
@@ -16,8 +17,6 @@ import javax.validation.constraints.Size;
 public class Employer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotEmpty(message = "Id is mandatory")
-    @Size(max = 20)
     @Column(name="employer_id", unique = true)
     private Long id;
 

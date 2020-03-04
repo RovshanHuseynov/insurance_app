@@ -16,8 +16,6 @@ import javax.validation.constraints.Size;
 public class Insurance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotEmpty(message = "Id is mandatory")
-    @Size(max = 20)
     @Column(name="insurance_id", unique = true)
     private Long id;
 }
