@@ -49,4 +49,16 @@ public class ClientService {
         return clientRepository.save(clientOP.orElseThrow(() ->
                 new Exception("UPDATE CLIENT operation could not be executed. Input data is invalid")));
     }
+
+    public Client delete(Long clientId_) {
+        Optional<Client> clientOP = clientRepository.findById(clientId_);
+
+        if(clientOP.isPresent()){
+            clientRepository.delete(clientOP.get());
+            return clientOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE CLIENT operation could not be executed. CLIENT with %s id could not found", clientId_));
+        }
+    }
 }
