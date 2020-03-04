@@ -6,6 +6,7 @@ import rovshan.insurance_app.entity.Client;
 import rovshan.insurance_app.service.ClientService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/client")
@@ -26,5 +27,8 @@ public class ClientController {
         return clientService.read(clientId_);
     }
 
-    
+    @GetMapping("/readAll")
+    public List<Client> readAll(){
+        return clientService.readAll();
+    }
 }
