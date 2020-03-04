@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,4 +18,9 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="payment_id", unique = true)
     private Long id;
+
+    @NotEmpty(message = "amount is mandatory")
+    @Size(max = 20)
+    @Column(name="amount")
+    private String amount;
 }
