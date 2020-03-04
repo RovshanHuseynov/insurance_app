@@ -34,7 +34,13 @@ public class EmployerService {
         for(Employer e : employerRepository.findAll()){
             employers.add(e);
         }
-        return employers;
+
+        if(employers.size() == 0){
+            throw new Exception("READ ALL COMPANY operation could not be executed. There are no any companies.");
+        }
+        else {
+            return employers;
+        }
     }
 
     public Employer update(Employer employer) {
