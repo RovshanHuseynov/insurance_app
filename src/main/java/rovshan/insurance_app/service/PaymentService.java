@@ -43,4 +43,10 @@ public class PaymentService {
             return payments;
         }
     }
+
+    public Payment update(Payment payment) {
+        Optional<Payment> paymentOP = Optional.ofNullable(payment);
+        return paymentRepository.save(paymentOP.orElseThrow(() ->
+                new Exception("UPDATE PAYMENT operation could not be executed. Input data is invalid")));
+    }
 }

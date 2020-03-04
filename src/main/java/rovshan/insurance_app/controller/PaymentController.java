@@ -27,8 +27,15 @@ public class PaymentController {
         return paymentService.read(paymentId_);
     }
 
-    @GetMapping("readAll")
+    @GetMapping("/readAll")
     public List<Payment> readALl(){
         return paymentService.readAll();
     }
+
+    @PutMapping("/update")
+    public Payment update(@Valid @RequestBody Payment payment){
+        return paymentService.update(payment);
+    }
+
+
 }
