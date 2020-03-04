@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends CrudRepository<Employer, Long> {
-    Optional<Employer> findByUsernameAndPassword(String username, String password);
-    List<Employer> findUsersByCompanyId(Long companyId);
+public interface EmployerRepository extends CrudRepository<Employer, Long> {
+
 }

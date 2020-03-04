@@ -18,31 +18,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotEmpty(message = "Id is mandatory")
     @Size(max = 20)
-    @Column(name = "product_id")
+    @Column(name="product_id", unique = true)
     private Long id;
-
-    @NotEmpty(message = "Name is mandatory")
-    @Size(max = 40)
-    @Column(name="name")
-    private String name;
-
-    @NotEmpty(message = "FirstAmount is mandatory")
-    @Size(max = 40)
-    @Column(name="first_amount")
-    private String firstAmount;
-
-    @NotEmpty(message = "SecondAmount is mandatory")
-    @Size(max = 40)
-    @Column(name="second_amount")
-    private String secondAmount;
-
-    @NotEmpty(message = "ThirdAmount is mandatory")
-    @Size(max = 40)
-    @Column(name="third_amount")
-    private String thirdAmount;
-
-    @NotEmpty(message = "CommissionCost is mandatory")
-    @Size(max = 40)
-    @Column(name="commission_cost")
-    private String commissionCost;
 }

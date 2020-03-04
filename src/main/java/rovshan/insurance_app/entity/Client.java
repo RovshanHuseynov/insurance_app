@@ -16,13 +16,8 @@ import javax.validation.constraints.Size;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotEmpty(message = "Name is mandatory")
+    @NotEmpty(message = "Id is mandatory")
     @Size(max = 20)
-    @Column(name="client_id")
+    @Column(name="client_id", unique = true)
     private Long id;
-
-    @NotEmpty(message = "Name is mandatory")
-    @Size(min=7, max=7, message = "FIN must contain 7 characters")
-    @Column(name="fin")
-    private String fin;
 }

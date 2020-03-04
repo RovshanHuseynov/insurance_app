@@ -18,11 +18,6 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotEmpty(message = "Id is mandatory")
     @Size(max = 20)
-    @Column(name="company_id")
+    @Column(name="company_id", unique = true)
     private Long id;
-
-    @NotEmpty(message = "Name is mandatory")
-    @Size(max = 40)
-    @Column(name="name")
-    private String name;
 }

@@ -18,9 +18,6 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotEmpty(message = "Id is mandatory")
     @Size(max = 20)
-    @Column(name="payment_id")
+    @Column(name="payment_id", unique = true)
     private Long id;
-
-    @NotEmpty(message = "Value is mandatory")
-    private String value;
 }
