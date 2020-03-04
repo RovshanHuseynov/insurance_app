@@ -49,4 +49,16 @@ public class CompanyService {
         return companyRepository.save(companyOP.orElseThrow(() ->
                 new Exception("UPDATE COMPANY operation could not be executed. COMPANY could not found")));
     }
+
+    public Company delete(Long companyId_) {
+        Optional<Company> companyOP = companyRepository.findById(companyId_);
+
+        if(companyOP.isPresent()){
+            companyRepository.delete(companyOP.get());
+            return companyOP.get();
+        }
+        else{
+            throw new Exception(String.format("DELETE COMPANY operation could not be executed. COMPANY with %s id could not found", companyId_));
+        }
+    }
 }

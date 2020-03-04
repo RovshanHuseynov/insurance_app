@@ -36,4 +36,9 @@ public class CompanyController {
     public Company update(@Valid @RequestBody Company company){
         return companyService.update(company);
     }
+
+    @DeleteMapping("/delete/{companyId}")
+    public Company delete(@Valid @PathVariable("companyId") Long companyId_){
+        return companyService.delete(companyId_);
+    }
 }
