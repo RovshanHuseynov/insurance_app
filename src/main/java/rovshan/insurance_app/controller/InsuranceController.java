@@ -6,6 +6,7 @@ import rovshan.insurance_app.entity.Insurance;
 import rovshan.insurance_app.service.InsuranceService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("insurance")
@@ -24,5 +25,10 @@ public class InsuranceController {
     @GetMapping("/read/{insuranceId}")
     public Insurance read(@Valid @PathVariable("insuranceId") Long insuranceId_){
         return insuranceService.read(insuranceId_);
+    }
+
+    @GetMapping("/readAll")
+    public List<Insurance> readAll(){
+        return insuranceService.readAll();
     }
 }

@@ -6,6 +6,8 @@ import rovshan.insurance_app.entity.Insurance;
 import rovshan.insurance_app.exception.Exception;
 import rovshan.insurance_app.repository.InsuranceRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,5 +27,20 @@ public class InsuranceService {
     public Insurance read(Long insuranceId_) {
         return insuranceRepository.findById(insuranceId_).orElseThrow(() ->
                 new Exception(String.format("READ INSURANCE operation could not be executed. INSURANCE with %d id could not be found", insuranceId_)));
+    }
+
+    public List<Insurance> readAll() {
+        ArrayList<Insurance> insurances = new ArrayList<>();
+
+        for(Insurance i : insuranceRepository.findAll()){
+            insurances.add(i);
+        }
+
+        if(insurances.size() == 0){
+            throw new Exception("READ ALL INSURANCES operation could not be executed. There are no any products.");
+        }
+        else{
+            return insurances;
+        }
     }
 }
