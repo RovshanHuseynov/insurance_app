@@ -1,7 +1,5 @@
 package rovshan.insurance_app.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +26,7 @@ public class Company {
     @Size(max = 40)
     private String name;
 
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "company", fetch = FetchType.LAZY)
     private List<Employee> employees = new ArrayList<>();
 }

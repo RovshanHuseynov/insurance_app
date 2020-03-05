@@ -1,8 +1,6 @@
 package rovshan.insurance_app.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +24,7 @@ public class Employee {
     @Size(max = 20)
     private String name;
 
-    //@JsonBackReference
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="company_id")
     private Company company;
