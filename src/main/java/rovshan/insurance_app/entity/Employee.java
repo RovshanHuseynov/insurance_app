@@ -26,7 +26,6 @@ public class Employee {
     private String name;
 
     @NotNull(message = "Company is mandatory")
-    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="company_id")
     private Company company;

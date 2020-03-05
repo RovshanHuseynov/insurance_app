@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @AllArgsConstructor
@@ -18,7 +17,7 @@ import javax.validation.constraints.Size;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="client_id", unique = true)
+    @Column(name = "client_id", unique = true)
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")

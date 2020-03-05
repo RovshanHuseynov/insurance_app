@@ -25,8 +25,4 @@ public class Company {
     @NotEmpty(message = "Name is mandatory")
     @Size(max = 40)
     private String name;
-
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "company", fetch = FetchType.LAZY)
-    private List<Employee> employees = new ArrayList<>();
 }
