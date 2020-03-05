@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @AllArgsConstructor
@@ -24,6 +25,7 @@ public class Employee {
     @Size(max = 20)
     private String name;
 
+    @NotNull(message = "Company is mandatory")
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="company_id")
