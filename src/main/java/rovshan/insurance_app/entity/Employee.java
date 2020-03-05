@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name="employee_id", unique = true)
+    @Column(name="employee_id", unique = true)
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")

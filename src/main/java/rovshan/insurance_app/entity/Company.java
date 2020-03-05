@@ -21,14 +21,13 @@ import java.util.List;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-   //@Column(name="company_id", unique = true)
+    @Column(name="company_id", unique = true)
     private Long id;
 
     @NotEmpty(message = "Name is mandatory")
     @Size(max = 40)
     private String name;
 
-      //@JsonManagedReference
-      @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "company", fetch = FetchType.LAZY)
-      private List<Employee> employees = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "company", fetch = FetchType.LAZY)
+    private List<Employee> employees = new ArrayList<>();
 }
